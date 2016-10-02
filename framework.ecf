@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-15-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-15-0 http://www.eiffel.com/developers/xml/configuration-1-15-0.xsd" name="framework" uuid="F463C069-2394-4A68-87FA-5A3F7DA8E1FE" library_target="framework">
+	<description>Collection of classes too small for their own library</description>
+	<target name="test">
+		<description>Test target for Framework</description>
+		<root class="ANY" feature="default_create"/>
+		<file_rule>
+			<description>Exclusion of EIFGENs directory</description>
+			<exclude>eifgens</exclude>
+			<exclude>git</exclude>
+		</file_rule>
+		<option warning="true" is_obsolete_routine_type="true" void_safety="transitional" syntax="provisional">
+			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
+		</option>
+		<setting name="console_application" value="true"/>
+		<setting name="concurrency" value="scoop"/>
+		<library name="base" location="$ISE_LIBRARY\library\base\base-safe.ecf"/>
+		<library name="process" location="$ISE_LIBRARY\library\process\process-safe.ecf">
+			<option>
+				<assertions/>
+			</option>
+		</library>
+		<library name="randomizer" location="..\randomizer\randomizer.ecf"/>
+		<library name="test_extension" location="..\test_extension\test_extension.ecf"/>
+		<library name="testing" location="$ISE_LIBRARY\library\testing\testing-safe.ecf"/>
+		<library name="thread" location="$ISE_LIBRARY\library\thread\thread-safe.ecf"/>
+		<library name="uuid" location="$ISE_LIBRARY\library\uuid\uuid-safe.ecf"/>
+		<library name="vision2" location="$ISE_LIBRARY\library\vision2\vision2-safe.ecf"/>
+		<cluster name="framework" location=".\" recursive="true"/>
+	</target>
+	<target name="framework" extends="test">
+		<description>Framework library</description>
+		<root all_classes="true"/>
+		<version major="1" minor="1" release="1" build="1" company="Savannah Software Craftsmen" product="General Application Framework" trademark="SSC" copyright="2014"/>
+		<setting name="concurrency" value="scoop"/>
+	</target>
+</system>
